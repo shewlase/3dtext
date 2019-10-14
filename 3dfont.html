@@ -1,0 +1,52 @@
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="3dfont.css">
+
+	</head>
+
+	<!-- <body class="animated"> -->
+	<body >
+
+		<!-- <textarea style="height: 100vw;"></textarea> -->
+		<div id="wordsContainer">
+			<!-- <h1 id='words' class='three'>wake meditate</h1> -->
+			<textarea spellcheck='false' id='words' class='three'></textarea>
+			<!-- <input id='words'  type="textarea" class='three'> -->
+			<!-- <h1 id='words2' class='three'>nomad</h1>
+			<h1 id='words3' class='three'>bro</h1> -->
+				<!-- <img id='words' class='three' src = 'bolt.png'></img> -->
+		</div>
+		<div id='inputContainer'>
+			<h2>Thickness</h2>
+			<input type="range" min="1" max="100" value="20" class="slider" id="thicknessSlider">
+			<h2>Font size</h2>
+			<input type="range" min="5" max="100" value="50" class="slider" id="fontSizeSlider">
+			<h2>Rotate</h2>
+			<input type="range" min="0" max="100" value="50" class="slider" id="wholeRotationSlider">
+			<h2>Twist</h2>
+			<input type="range" min="0" max="100" value="50" class="slider" id="rotationSlider">
+
+			<!-- <h2>Stroke</h2> -->
+			<h2>x Perspective</h2>
+			<input type="range" min="0" max="100" value="100" class="slider" id="xPerspectiveSlider">
+			<h2>y Perspective</h2>
+			<input type="range" min="0" max="100" value="50" class="slider" id="yPerspectiveSlider">
+			<input type='button' value='Stroke' id="strokeToggle">
+	 </div>
+
+
+	 <select id="fontSelector" onchange="changeFont()">
+      <!-- options generated in javascript -->
+    </select>
+		<!-- <div id="wordsContainer">
+			<h1 id='words' class='three'>digital</h1>
+			<h1 id='words2' class='three'>nomad</h1>
+			<h1 id='words3' class='three'>bro</h1>
+			<img id='words' class='three' src = 'bolt.png'></img>
+		</div> -->
+			<!-- <h1 id='words' class='three'>Easy Mode</h1> -->
+
+		<script src="3dfont.js"></script>
+	</body>
+</html>
