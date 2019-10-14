@@ -12,7 +12,7 @@ var thickness = 20;
 var rotation = 0;
 var wholeRotation = 0;
 var isStroked = true;
-var allFonts = ['Righteous', 'Baloo', 'Paytone One', 'Arial'];
+var allFonts = ['Righteous', 'Baloo', 'Paytone One', 'Arial Black', 'Comic Sans MS', 'Impact', 'Trebuchet MS', 'Lucida Console'];
 init();
 
 function init()
@@ -127,7 +127,7 @@ function changeFont()
 {
   //change font-family of selected text element
   let selectedFontName = fontDropdown.options[fontDropdown.selectedIndex].value;
-  // fontDropdown.style.fontFamily = selectedFontName;
+  fontDropdown.style.fontFamily = selectedFontName;
   // focusedElement.font = selectedFontName;
   // fontDropdown.style.fontFamily = selectedFontName;
   // focusedElement.updateHtmlElement();

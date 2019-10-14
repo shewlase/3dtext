@@ -50,6 +50,7 @@ h2
 	margin: 0;
 	text-align: center;
 	margin-bottom: 2vh;
+	font-size: 2vw;
 }
 
 .three
@@ -144,8 +145,14 @@ select
   position: fixed;
   left: 0vw;
   width: 10vw;
+	font-family: 'Righteous', cursive;
   /* opacity: 0.0; */
   /* font-family: "Baloo"; */
+}
+
+option
+{
+	padding: 2vw;
 }
 
 .slider
