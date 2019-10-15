@@ -35,6 +35,14 @@ function init()
 	yPerspective = -100;
 	makeThreeD(mainText);
 	buildFontSelector();
+
+					//print to canvas
+
+	// html2canvas(document.querySelector("#words")).then(canvas => {
+	//     document.body.appendChild(canvas)
+	// });
+
+
 	// makeThreeD(document.getElementById('words2'));
 	// makeThreeD(document.getElementById('words3'));
 }
