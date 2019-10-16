@@ -82,8 +82,8 @@ h2
 .threeNoStroke
 {
 	height: 50vw;
-  color: white; /* Black text color */
-  position: absolute; /* Make the links appear below each other */
+  color: white;
+  position: absolute;
 
 	font-size: 5vw;
 
@@ -133,6 +133,17 @@ input[type='button']
 	font-family: 'Righteous', cursive;
 }
 
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
 /* input[type='text'] */
 /* input[type='textarea'] */
 textarea
@@ -151,10 +162,16 @@ textarea:focus
 	/* background-color: rgba(255,255,255,0.4); */
 }
 
+#yPerspectiveSlider
+{
+	/* transform: rotate(90deg); */
+}
+
 select
 {
   position: fixed;
   left: 0vw;
+	top: 10vh;
   width: 10vw;
 	font-family: 'Righteous', cursive;
   /* opacity: 0.0; */

@@ -6,6 +6,7 @@ var mainText, frontText;
 var fontSizeInput, thicknessSlider, rotationSlider, wholeRotationSlider, strokeToggle;
 var xPerspectiveSlider, yPerspectiveSlider;
 var xPerspective, yPerspective;
+var color1Picker, color2Picker, frontColor, sideColor;
 var allClones;
 var fontDropdown;
 var thickness = 20;
@@ -29,10 +30,17 @@ function init()
 	strokeToggle = document.getElementById('strokeToggle');
 	xPerspectiveSlider = document.getElementById('xPerspectiveSlider');
 	yPerspectiveSlider = document.getElementById('yPerspectiveSlider');
+	color1Picker = document.getElementById('color1Picker');
+	color2Picker = document.getElementById('color2Picker');
 
   fontDropdown = document.getElementById("fontSelector");
 	xPerspective = 100;
 	yPerspective = -100;
+	frontColor = '#ffffff';
+	sideColor = '#2176AE';
+	color1Picker.value = frontColor;
+	color2Picker.value = sideColor;
+
 	makeThreeD(mainText);
 	buildFontSelector();
 
@@ -51,14 +59,16 @@ function makeThreeD(element)
 {
 	//duplicate element x times, changing z index a little
 	// let words = document.getElementById('words');
+	// .style.webkitTextStroke = '0.2vw '+sideColor;
 	if(thickness > 1)
 	{
 	// 	// element.style.color = 'hsl()'; //sideColor
-		element.style.color = '#2176AE'; //sideColor
+		// element.style.color = '#2176AE'; //sideColor
+		element.style.color = sideColor; //sideColor
 	}
 	else
 	{
-		element.style.color = 'white';
+		element.style.color = frontColor;
 	}
 	let rotationIncrement = rotation/thickness;
 	for(let i = 1; i < thickness; i++)
@@ -76,7 +86,7 @@ function makeThreeD(element)
 
 		if(i == thickness-1)
 		{
-			element.style.color = 'white';
+			element.style.color = frontColor;
 
 			// frontText = clone;
 			element.onkeydown = function(event)
@@ -213,7 +223,6 @@ thicknessSlider.oninput = function(event)
 rotationSlider.oninput = function(event)
 {
   rotation = this.value/100*120-60;
-
 	removeAllClones();
 	makeThreeD(mainText);
 	//update all clones
@@ -233,7 +242,8 @@ wholeRotationSlider.oninput = function(event)
 
 strokeToggle.onmousedown = function(event)
 {
-	toggleStroke();
+	isStroked = !isStroked;
+	refreshStroke();
 	removeAllClones();
 	makeThreeD(mainText);
 }
@@ -251,6 +261,19 @@ yPerspectiveSlider.oninput = function(event)
 	updatePerspective();
 }
 
+color1Picker.oninput = function(e)
+{
+	frontColor = color1Picker.value;
+	removeAllClones();
+	makeThreeD(mainText);
+}
+color2Picker.oninput = function(e)
+{
+	sideColor = color2Picker.value;
+	refreshStroke();
+	removeAllClones();
+	makeThreeD(mainText);
+}
 
 
 function updatePerspective()
@@ -258,23 +281,26 @@ function updatePerspective()
 	document.getElementById('wordsContainer').style.perspectiveOrigin = xPerspective+'vw '+yPerspective+'vh ';
 }
 
-function toggleStroke()
+function refreshStroke()
 {
-	isStroked = !isStroked;
 	if(isStroked)
 	{
 		strokeToggle.style.boxShadow = '0.5vw 0.5vw black';
 		strokeToggle.style.transform = '';
-		mainText.classList.remove('threeNoStroke');
-		mainText.classList.add('three');
+		mainText.style.webkitTextStroke = '0.0vw '+sideColor;
+		// mainText.classList.remove('threeNoStroke');
+		// mainText.classList.add('three');
 	}
 	else
 	{
 		strokeToggle.style.boxShadow = 'none';
 		strokeToggle.style.transform = 'translateX('+0.5+'vw) translateY('+0.5+'vw)';
-		mainText.classList.remove('three');
-		mainText.classList.add('threeNoStroke');
+		mainText.style.webkitTextStroke = '0.2vw '+sideColor;
+		// mainText.classList.remove('three');
+		// mainText.classList.add('threeNoStroke');
 	}
+	removeAllClones();
+	makeThreeD(mainText);
 
 }
 
